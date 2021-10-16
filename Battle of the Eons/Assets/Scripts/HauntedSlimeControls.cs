@@ -13,7 +13,7 @@ public class HauntedSlimeControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Defence")){
+        if(Input.GetButtonDown("Defence") && gameObject.GetComponent<BoxCollider2D>().enabled){
             StartCoroutine(Ghost());
         }
     }
