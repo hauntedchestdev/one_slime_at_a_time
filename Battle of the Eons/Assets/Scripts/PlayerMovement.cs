@@ -73,6 +73,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void InputSummon(){
-        ActivateSlimes(summonInput.text);
+        ActivateSlimes(summonInput.text.ToLower());
     }
 }
