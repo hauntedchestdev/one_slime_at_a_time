@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void DeactivateSlimes(){
+        GameObject.Find("Base Slime").GetComponent<BaseSlime>().Combine();
         for(int i = 0; i < slimes.Length; i++){
             slimes[i].SetActive(false);
         }
@@ -75,4 +76,6 @@ public class PlayerMovement : MonoBehaviour
     public void InputSummon(){
         ActivateSlimes(summonInput.text.ToLower());
     }
+
+
 }
