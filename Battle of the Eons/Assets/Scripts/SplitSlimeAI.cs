@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SplitSlimeAI : MonoBehaviour
 {
+    public GameObject combineEffect;
     public float speed;
     private Transform player;
     public float maxDistance;
@@ -11,7 +12,10 @@ public class SplitSlimeAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         player = GameObject.Find("Base Slime").transform;
+        GameObject effect = Instantiate(combineEffect, transform.position, transform.rotation);
+        Destroy(effect,1);
     }
 
     // Update is called once per frame

@@ -142,5 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1845accba1fc047b2124cacb03835d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combineEffect: {fileID: 8632109874399416837, guid: 28f84951a797e9f46865e0b8fa1fa107, type: 3}
   speed: 2.5
   maxDistance: 1.5
