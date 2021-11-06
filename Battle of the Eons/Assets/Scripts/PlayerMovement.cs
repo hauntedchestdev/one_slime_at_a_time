@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement;
 
+    public bool boulderSlimeOn = false;
+
     void Start(){
         ActivateSlimes("slime");
     }
@@ -48,11 +50,18 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if(canMove){
-            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+            if(boulderSlimeOn)
+                rb.AddForce(new Vector2(movement.x / moveSpeed, movement.y / moveSpeed), ForceMode2D.Impulse);
+            else
+                rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
     }
 
     private void DeactivateSlimes(){
+
+        boulderSlimeOn = false;
+        rb.sharedMaterial = null;
+
         if(GameObject.Find("Base Slime"))
             GameObject.Find("Base Slime").GetComponent<BaseSlime>().Combine(true);
         for(int i = 0; i < slimes.Length; i++){
