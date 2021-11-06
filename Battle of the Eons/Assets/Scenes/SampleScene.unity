@@ -667,6 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c534544317e69f848a001769cf5bf2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smashEffect: {fileID: 7095901128974723552, guid: d99b4b4930d6b534fb5676359ecc5ec5, type: 3}
   body: {fileID: 1038389231}
   bouncy: {fileID: 6200000, guid: f6b0f1e19488f284e974569c4e805a86, type: 2}
 --- !u!1 &865729211
