@@ -23,7 +23,7 @@ public class BoulderSlime : MonoBehaviour
     }
     private void Update(){
         if(Input.GetButtonDown("Special") && !body.GetComponent<PlayerMovement>().boulderSlimeOn){
-            StartCoroutine(boulderSlam(10));
+            StartCoroutine(boulderSlam(7));
         }
     }
     private IEnumerator boulderSlam(float time){
