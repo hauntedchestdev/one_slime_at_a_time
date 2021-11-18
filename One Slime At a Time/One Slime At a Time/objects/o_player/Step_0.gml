@@ -1,49 +1,15 @@
-right_key = keyboard_check(ord("D"));
-left_key = keyboard_check(ord("A"));
-up_key = keyboard_check(ord("W"));
-down_key = keyboard_check(ord("S"));
+right_key = keyboard_check(ord("D")) || keyboard_check(vk_right);
+left_key = keyboard_check(ord("A")) || keyboard_check(vk_left);
+up_key = keyboard_check(ord("W")) || keyboard_check(vk_up);
+down_key = keyboard_check(ord("S")) || keyboard_check(vk_down);
+attack_key = keyboard_check(ord("E"));
+transform_key = keyboard_check(vk_enter);
 
-//get xspeed and yspeed
-xspeed = (right_key - left_key) * move_speed;
-yspeed = (down_key - up_key) * move_speed;
-
-//set sprite
-if xspeed > 0 {face_direction = RIGHT};
-if xspeed < 0 {face_direction = LEFT};
-
-if yspeed > 0 {face_direction = DOWN};
-if yspeed < 0 {face_direction = UP};
-
-sprite_index = sprite[face_direction];
-
-//collisions
-if place_meeting(x+xspeed, y, o_overgrown_boulder)
+switch (state)
 {
-	xspeed = 0;
+	case PLAYERSTATE.FREE: scr_playerstate_free(); break;
+	
+	case PLAYERSTATE.ATTACK_JAB: scr_playerstate_attack_jab(); break;
+	
+	case PLAYERSTATE.TRANSFORM_SLIME: scr_playerstate_transform(); break;
 }
-if place_meeting(x, y+yspeed, o_overgrown_boulder)
-{
-	yspeed = 0;
-}
-if place_meeting(x+xspeed, y, o_overgrown_rocks)
-{
-	xspeed = 0;
-}
-if place_meeting(x, y+yspeed, o_overgrown_rocks)
-{
-	yspeed = 0;
-}
-if place_meeting(x+xspeed, y, o_overgrown_pebbles)
-{
-	xspeed = 0;
-}
-if place_meeting(x, y+yspeed, o_overgrown_pebbles)
-{
-	yspeed = 0;
-}
-
-//move the player
-x += xspeed;
-y += yspeed;
-
-

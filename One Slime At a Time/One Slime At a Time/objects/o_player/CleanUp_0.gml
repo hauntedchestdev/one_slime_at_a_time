@@ -1,0 +1,1 @@
+ds_list_delete(hit_by_attack, o_player);
